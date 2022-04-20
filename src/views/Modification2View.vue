@@ -9,23 +9,23 @@
                 </form>
             </div>
      </nav>
-      <h5 class="text-primary" style="text-align:center; margin-top:25px" ><b> INSCRIPTION </b></h5>
+      <h5 class="text-primary" style="text-align:center; margin-top:25px" ><b> MODIFICATION DES INFORMATIONS </b></h5>
    
-        <form row g-3 method="GET" action="../views/Inscription3View.vue"> 
+            <form row g-3 method="GET" action="../views/inscription3View.vue"> 
 
             <fieldset  class="border p-2">
 
-                <legend  class="float-none w-auto p-3"><h4 class="text-primary" style="text-align:center" >Information financière de l'entreprise</h4></legend>
+                <legend  class="float-none w-auto p-3"><h5 class="text-primary" style="text-align:center" >Information financière de l'entreprise</h5></legend>
 
                 <fieldset class="border p-2">
-                    <legend  class="float-none w-auto p-3"><h4 class="text-primary" style="text-align:center" >Equipes dirigeantes</h4></legend>
-                    <div class="row d-flex flew-wrap justify-content-center">
-                        <div class="col-sm-3 mb-3">
-                            <div class="input-group">
-                                <span class="input-group-text bg-white" style="border-right: none;" id="basic-addon1">
+                    <legend  class="float-none w-auto p-3"><h5 class="text-primary" style="text-align:center" >Equipes dirigeantes</h5></legend>
+                    <div class="row  d-flex flew-wrap justify-content-center"  >
+                        <div class="col-sm-3 mb-3 ">
+                             <div class="input-group">
+                                   <span class="input-group-text bg-white" id="basic-addon1" style="border-right: none;">
                                         <img src="../assets/person-square.svg" alt="" width="27px">
                                     </span>
-                                <input class="form-control" id="nom" type="text" placeholder="Nom" required>
+                                <input class="form-control" id="nom" type="text" placeholder="Nom 1" required v-model="equipe.name">
                             </div>
                         </div>
                         <div class="col-sm-3 mb-3">
@@ -33,45 +33,43 @@
                                     <span class="input-group-text bg-white" id="basic-addon1">
                                         <img src="../assets/Place Marker.svg" alt="">
                                     </span>
-                                    <select class="form-select" id="autoSizingSelect" required>
+                                    <select class="form-select" id="autoSizingSelect" required v-model="equipe.position">
                                         <option selected>Position</option>
-                                        <option value="1">CEO</option>
-                                        <option value="2">CTO</option>
-                                        <option value="3">COO</option>
+                                        <option value="CEO">CEO</option>
+                                        <option value="CTO">CTO</option>
+                                        <option value="COO">COO</option>
  
                                     </select>
                             </div>
                         </div>
                         <div class="col-sm-3 mb-3">
-                            <div class="input-group">
-                                <span class="input-group-text bg-white" style="border-right: none;" id="basic-addon1">
+                             <div class="input-group">
+                                   <span class="input-group-text bg-white" id="basic-addon1" style="border-right: none;" >
                                         <img src="../assets/Link.svg" alt="">
                                     </span>
-                                <input class="form-control" id="url" type="url" placeholder="Url" v-model="url" @input="change($event)" @change="change($event)" required>
-                                <div class="error" v-if="isValid">URL invalide</div>
+                                <input class="form-control" id="url" type="url" placeholder="Profil likedin 1" required v-model="equipe.url">
                             </div>
                         </div>
-                        
                         <div class="col-sm-1 mb-3">
                             <div class="input-group">
-                                <span class=" bg-white" id="basic-addon1">
-                                   <a href="" onclick="" ><img src="../assets/Add circle.svg" alt=""  ></a>   
-                                </span>
+                                    <span class=" bg-white" id="basic-addon1">
+                                        <img src="../assets/Add circle.svg" alt="">
+                                    </span>
                             </div>
                         </div>
+
                 
                     </div>
-
                 </fieldset>
                 <fieldset class="border p-2">
-                    <legend  class="float-none w-auto p-3"><h4 class="text-primary" style="text-align:center" >Investisseurs</h4></legend>
+                    <legend  class="float-none w-auto p-3"><h5 class="text-primary" style="text-align:center" >Investisseurs</h5></legend>
                     <div class="row   d-flex flew-wrap justify-content-center">
                         <div class="col-sm-3 mb-3">
                              <div class="input-group">
-                                 <span class="input-group-text bg-white" style="border-right: none;" id="basic-addon1">
+                                 <span class="input-group-text bg-white" id="basic-addon1" style="border-right: none;">
                                     <img src="../assets/person-square.svg" alt="" width="27px">
                                 </span>
-                                <input class="form-control" id="nom" type="text" placeholder="Nom" required>
+                                <input class="form-control" id="nom" type="text" placeholder="Nom 1" required v-model="investisseur.name">
                             </div>
                         </div>
                         <div class="col-sm-3 mb-3">
@@ -79,22 +77,21 @@
                                 <span class="input-group-text bg-white" id="basic-addon1">
                                     <img src="../assets/Place Marker.svg" alt="">
                                 </span>
-                                    <select class="form-select" id="autoSizingSelect" required>
+                                    <select class="form-select" id="autoSizingSelect" placeholder="Position" required v-model="investisseur.position">
                                         <option selected>Position</option>
-                                        <option value="1">CEO</option>
-                                        <option value="2">CTO</option>
-                                        <option value="3">COO</option>
+                                        <option value="CEO">CEO</option>
+                                        <option value="CTO">CTO</option>
+                                        <option value="COO">COO</option>
 
                                     </select>
                             </div>
                         </div>
                         <div class="col-sm-3 mb-3">
                              <div class="input-group">
-                                <span class="input-group-text bg-white" style="border-right: none;" id="basic-addon1">
+                                <span class="input-group-text bg-white" id="basic-addon1" style="border-right: none;">
                                     <img src="../assets/Link.svg" alt="">
                                 </span>
-                                <input class="form-control" id="url" type="url" placeholder="Url" v-model="URL" @input="change($event)" @change="change($event)" required>
-                                <div class="error" v-if="isValid">URL invalide</div>
+                                <input  v-model="investisseur.url" class="form-control" id="url" type="url" placeholder="Profil likedin 1" required >
                             </div>
                         </div>
                         <div class="col-sm-1 mb-3">
@@ -108,14 +105,14 @@
                     </div>
                 </fieldset>
                 <fieldset class="border p-2">
-                    <legend  class="float-none w-auto p-3"><h4 class="text-primary" style="text-align:center" >Chiffres d'affaires</h4></legend>
+                    <legend  class="float-none w-auto p-3"><h5 class="text-primary" style="text-align:center" >Chiffres d'affaires</h5></legend>
                     <div class="row   d-flex flew-wrap justify-content-center">
                         <div class="col-sm-4 mb-4">
                             <div class="input-group">
                                     <span class="input-group-text bg-white" id="basic-addon1">
                                         <img src="../assets/table.svg" alt="" width="27px">
                                     </span>
-                                <input class="form-control" id="annee" type="date" placeholder="Année" required>
+                                <input class="form-control" id="annee" type="date" placeholder="" required v-model="chiffreAffaire.annee">
                             </div>
                         </div>
                         <div class="col-sm-5 mb-4">
@@ -123,27 +120,28 @@
                                     <span class="input-group-text bg-white" id="basic-addon1">
                                         <img src="../assets/Table of Content.svg" alt="">
                                     </span>
-                                <input class="form-control" id="montant" type="text" placeholder="Montant" required>
+                                <input class="form-control" id="montant" type="text" placeholder="15.625.958" required v-model="chiffreAffaire.montant">
                             </div>
                         </div>
                          <div class="col-sm-1 mb-3">
                             <div class="input-group">
-                                <span class=" bg-white" id="basic-addon1">
+                                <span class=" bg-white" id="basic-addon1" v-on:click="listEquipe">
                                     <img src="../assets/Add circle.svg" alt="">
                                 </span>
                             </div>
                         </div>
                     </div>
+
                 </fieldset>
                  <fieldset class="border p-2">
-                    <legend  class="float-none w-auto p-3"><h4 class="text-primary" style="text-align:center" >Levés de fonds</h4></legend>
+                    <legend  class="float-none w-auto p-3"><h5 class="text-primary" style="text-align:center" >Levés de fonds</h5></legend>
                     <div class="row   d-flex flew-wrap justify-content-center">
                         <div class="col-sm-4 mb-4">
                             <div class="input-group">
                                     <span class="input-group-text bg-white" id="basic-addon1">
                                         <img src="../assets/table.svg" alt="" width="27px">
                                     </span>
-                                <input class="form-control" id="annee" type="date" placeholder="Année" required>
+                                <input class="form-control" id="annee" type="date" placeholder="Année" required v-model="leveeFond.annee">
                             </div>
                         </div>
                         <div class="col-sm-5 mb-4">
@@ -151,7 +149,7 @@
                                     <span class="input-group-text bg-white" id="basic-addon1">
                                         <img src="../assets/Table of Content.svg" alt="">
                                     </span>
-                                <input class="form-control" id="montant" type="text"  placeholder="Montant" required>
+                                <input class="form-control" id="montant" type="text" placeholder="Montant" required v-model="leveeFond.montant">
                             </div>
                         </div>
                         <div class="col-sm-1 mb-3">
@@ -163,54 +161,79 @@
                         </div>
                     </div>
                 </fieldset>
-                <br>
-                    <div style="margin-left: 4px" class="row gx-3 gy-2 align-items-center">
+                    <div class="row gx-3 gy-2 align-items-center" style="margin-left: 4px">
                         <div class="col-sm-2 mb-4">
                             <div class="input-group">
                                     <span class="input-group-text bg-white" id="basic-addon1">
                                         <img src="../assets/dollar.svg" alt="" width="27px">
                                     </span>
-                                <input class="form-control" id="capital" type="text" placeholder="Capital Social" required>
+                                <input class="form-control" id="capital" type="text" placeholder="Capital Social" required v-model="capital">
                             </div>
                         </div>
                     </div>
             </fieldset>
-
                 <br><br><br>
                  <div class="position-relative">
                     <div class="position-absolute bottom-0 start-0"><router-link  class="btn btn-primary previous pull-left" to="/inscription1">&#8249; Précédent</router-link></div>
-                    <div class="position-absolute bottom-0 end-0"><button type="submit" class="btn btn-primary next pull-right" to="../views/Inscription3View.vue">Suivant &#8250;</button></div>
+                <div class="position-absolute bottom-0 end-0"><button class="btn btn-primary next pull-right" type="Submit">Suivant &#8250;</button></div>
                 </div>
             </form>
+
+    
   </div>
   
 </template>
-
-<script >
-// @ is an alias to /src
-
+<script>/*
+import { mapState} from 'vuex'*/
 export default {
-    name: "InputUrl",
+    name:'Inscription2View',
+        computed:
+        {
+                   /*  ...mapState(['startup']),*/
+                      
+        },
     data(){
         return{
-            url: "",
-            isValid: false,
-            regex: '[YOUR URL REGEX GOES HERE]'
-        };
-
+        
+            equipe:[{
+                name:'',
+                position:'',
+                url:'',
+            }
+            ],
+            
+            investisseur:[{
+                name:'',
+                position:'',
+                url:'',
+            }
+            ],
+            chiffreAffaire:[{
+                annee:'',
+                montant:'',
+            }
+            ],
+            leveeFond:[{
+                annee:'',
+                montant:'',
+            }
+            ],
+            capital:'',
+        }
     },
-    methods: {
-        change: function(e){
-            const url = e.target.value
-            this.isURLValid(url)
+    methods:
+    {
+        getDate()
+        {
+            let d = new Date();
+            return d;
         },
-        isURLValid: function(inputUrl) {
-            this.isValid = this.regex.test(inputUrl)
-        },
+        addNewTeam() {
+        this.startup.list_team.push( {name:this.equipe.name,position:this.equipe.position,url:this.equipe.url})
+        }
     }
 }
 </script>
-
 <style scoped>
 fieldset {
     border: 2px solid  #ddd !important;
@@ -239,10 +262,7 @@ h3{
 .round {
   border-radius: 70%;
 }
-input{
-   border-left: none;
-}
-select{
+input,select{
     border-left: none;
 }
 
